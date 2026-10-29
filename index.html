@@ -638,5 +638,34 @@
   cargarDatosWeb();
 
 </script>
+
+<!-- FIREBASE: configuración e inicialización dentro de index.html -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCmYcBPdpPNwEr_mRIiQG3zd_pZ5JibDLuM",
+    authDomain: "variedades-mary-25f6a.firebaseapp.com",
+    projectId: "variedades-mary-25f6a",
+    storageBucket: "variedades-mary-25f6a.firebasestorage.app",
+    messagingSenderId: "42236703549",
+    appId: "1:42236703549:web:7da3723e2caeeae55cb54"
+  };
+
+  const firebaseApp = initializeApp(firebaseConfig);
+  const auth = getAuth(firebaseApp);
+  const db = getFirestore(firebaseApp);
+
+  // Disponibles desde la consola del navegador para pruebas.
+  // Las funciones actuales de la web aún deben modificarse para usar auth y db.
+  window.firebaseApp = firebaseApp;
+  window.firebaseAuth = auth;
+  window.firebaseDb = db;
+
+  console.log("Firebase inicializado correctamente");
+</script>
+
 </body>
 </html>
